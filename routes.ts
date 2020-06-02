@@ -3,8 +3,8 @@ import { MockMealController } from "./controllers/MockMealController.ts";
 
 const router = new Router();
 
-router.get("/meals", (context) => {
-  context.response.body = MockMealController.getAllMeals();
+router.get("/meals", ({ response }) => {
+  MockMealController.getAllMeals(response);
 });
 
 export default router;

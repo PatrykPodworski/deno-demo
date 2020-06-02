@@ -1,9 +1,10 @@
+import { Response } from "https://deno.land/x/oak@v4.0.0/mod.ts";
 import MealController from "./MealController.ts";
 import Meal from "../types/Meal.ts";
 import MealType from "../enums/MealType.ts";
 
 export const MockMealController: MealController = {
-  getAllMeals() {
+  getAllMeals(response: Response) {
     const meals: Meal[] = [
       { id: 1, name: "Gnocchi with tomato sauce", type: MealType.Lunch },
       { id: 2, name: "Chicken wings with potatoes", type: MealType.Lunch },
@@ -12,6 +13,9 @@ export const MockMealController: MealController = {
       { id: 5, name: "French Toasts", type: MealType.Dinner },
     ];
 
-    return meals;
+    response.body = {
+      success: true,
+      data: meals,
+    };
   },
 };
