@@ -1,10 +1,10 @@
-import { Response } from "https://deno.land/x/oak@v4.0.0/mod.ts";
+import { Context } from "https://deno.land/x/oak@v4.0.0/mod.ts";
 import MealController from "./MealController.ts";
 import Meal from "../types/Meal.ts";
 import MealType from "../enums/MealType.ts";
 
 export const MockMealController: MealController = {
-  getAllMeals(response: Response) {
+  getAllMeals({ response }: Context) {
     const meals: Meal[] = [
       { id: 1, name: "Gnocchi with tomato sauce", type: MealType.Lunch },
       { id: 2, name: "Chicken wings with potatoes", type: MealType.Lunch },
