@@ -1,8 +1,8 @@
-import MealsService from "./MealsService.ts";
-import Meal from "../models/Meal.ts";
+import MealController from "./MealController.ts";
+import Meal from "../types/Meal.ts";
 import MealType from "../enums/MealType.ts";
 
-export const MockMealsService: MealsService = {
+export const MockMealController: MealController = {
   getAllMeals() {
     const meals: Meal[] = [
       { id: 1, name: "Gnocchi with tomato sauce", type: MealType.Lunch },

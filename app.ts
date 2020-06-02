@@ -1,13 +1,10 @@
-import { Application, Router } from "https://deno.land/x/oak@v4.0.0/mod.ts";
-import { MockMealsService } from "./services/MockMealsService.ts";
+import { Application } from "https://deno.land/x/oak@v4.0.0/mod.ts";
+import router from "./routes.ts";
 
+const port = 8000;
 const app = new Application();
-const router = new Router();
-
-router.get("/meals", (context) => {
-  context.response.body = MockMealsService.getAllMeals();
-});
 
 app.use(router.routes());
 
-await app.listen({ port: 8000 });
+console.log(`Started the server on port: ${port}`);
+await app.listen({ port });
